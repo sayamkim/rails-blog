@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
+  before_action :require_user, only: [:edit, :update]
+  before_action :require_same_user, only: [:edit, :update]
+
 
   def show
     @articles = @user.articles.paginate(page: params[:page], per_page: 2)
@@ -11,6 +14,18 @@ class UsersController < ApplicationController
   
   def new
     @user = User.new
+  end
+  
+  def create
+    @user = User.new(user_params)
+
+    if @user.save
+      session[:user_id] = @user.id
+      flash[:notice] = "Welcome to the blog!"
+      redirect_to articles_path
+    else
+      render 'new'
+    end
   end
 
   def edit
@@ -25,18 +40,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def create
-    @user = User.new(user_params)
-
-    if @user.save
-      session[:user_id] = @user.id
-      flash[:notice] = "Welcome to the blog!"
-      redirect_to articles_path
-    else
-      render 'new'
-    end
-  end
-
   private
   def user_params
     params.require(:user).permit(:username, :email, :password)
@@ -44,5 +47,12 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def require_same_user
+    if current_user != @user
+      flash[:alert] = "You are not authorized to edit this user"
+      redirect_to @user
+    end
   end
 end
