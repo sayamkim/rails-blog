@@ -12,9 +12,14 @@
           </div>
           <div class="card-body">
             <p class="card-text"><%= pluralize(user.articles.count, "articles") %></p>
-            <button type="button" class="btn btn-outline-success"><%= link_to "View", user %></button>
-            <% if logged_in? && user == current_user %>
-              <button type="button" class="btn btn-outline-primary"><%= link_to 'Edit', edit_user_path(user) %></button>
+            <%= link_to "View", user, class:"btn btn-outline-success" %>
+            <% if logged_in? %>
+              <% if user == current_user %>
+                <%= link_to 'Edit', edit_user_path(user), class:"btn btn-outline-primary" %>
+              <% end %>
+              <% if current_user.admin? %>
+                <%= link_to 'Delete user', user_path(user), class:"btn btn-outline-danger", method: :delete, data: { confirm: "Are you sure" } %>
+              <% end %>
             <% end %>
           </div>
           <div class="card-footer text-muted">
