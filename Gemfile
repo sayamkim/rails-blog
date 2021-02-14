@@ -23,6 +23,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'bcrypt', '~> 3.1.7', :require => 'bcrypt'
 # Pagination gem
 gem 'will_paginate', '~> 3.1.0'
+# Intercom Rails gem
+gem "intercom-rails"
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
