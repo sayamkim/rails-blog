@@ -1,24 +1,5 @@
-# README
+## Blog App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Lightweight blog app built on Rails that includes basic login processes and user/admin privilege separation.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Currently being used both as a testing ground for Intercom workspace functionality in my role as a Support Engineer and as a playground for Bootstrap.
