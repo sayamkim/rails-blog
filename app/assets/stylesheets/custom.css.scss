@@ -1,11 +1,19 @@
 @import 'bootstrap/dist/css/bootstrap';
 
 .navbar {
-  background-color: #FCC107 !important;
+  background-color: #FFF !important;
 }
 
 #home-container {
   margin-top: 25px;
+}
+
+.courier {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.helvetica {
+  font-family: 'Helvetica Neue';
 }
 
 .flickr_pagination {
