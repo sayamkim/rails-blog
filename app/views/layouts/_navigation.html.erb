@@ -1,16 +1,16 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <%= link_to "rails blog", root_path, class: "navbar-brand courier" %>
+  <%= link_to "tofu blog", root_path, class: "navbar-brand courier font-large  font-weight-bold" %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse courier" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
+      <li class="nav-item font-medium mr-2">
         <%= link_to "bloggers", users_path, class: "nav-link" %>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle font-medium mr-2" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           articles
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -21,7 +21,7 @@
         </div>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle font-medium mr-2" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           categories
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -33,7 +33,7 @@
       </li>
       <% if logged_in? %>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle font-medium mr-2" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             [<%= current_user.username %>]<%= "(admin)" if current_user.admin? %>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -43,14 +43,14 @@
           </div>
         </li>
         <li class="nav-item ms-2">
-          <%= link_to 'logout', logout_path, class: "nav-link", method: :delete %>
+          <%= link_to 'logout', logout_path, class: "nav-link  font-medium mr-2", method: :delete %>
         </li>
       <% else %>
         <li class="nav-item">
-          <%= link_to 'log in', login_path, class: "nav-link" %>
+          <%= link_to 'log in', login_path, class: "nav-link  font-medium mr-2" %>
         </li>
         <li class="nav-item">
-          <%= link_to 'sign up', signup_path, class: "nav-link" %>
+          <%= link_to 'sign up', signup_path, class: "nav-link  font-medium mr-2" %>
         </li>
       <% end %>
     </ul>
