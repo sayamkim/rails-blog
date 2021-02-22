@@ -1,4 +1,4 @@
-<h2 class="text-center mt-4"><%= @article.title %></h2>
+<h2 class="text-center mt-4 helvetica neue font-dark-gray"><%= @article.title %></h2>
 <div class="container">
   <div class="row justify-content-md-center">
     <div class="col-8 mt-4">
@@ -12,12 +12,12 @@
         <div class="card-body">
           <div class="card-text text-left"><%= simple_format(@article.description) %></div>
           <% if logged_in? && (@article.user == current_user || current_user.admin?) %>
-            <button type="button" class="btn btn-outline-primary"><%= link_to 'Edit', edit_article_path(@article) %></button>
-            <button type="button" class="btn btn-outline-danger"><%= link_to 'Delete', article_path(@article), method: :delete, data: { confirm: "Are you sure" } %></button>
+            <%= link_to 'Edit', edit_article_path(@article), class: "btn btn-outline-dark btn-small helvetica-neue" %>
+            <%= link_to 'Delete', article_path(@article), class: "btn btn-outline-dark btn-small helvetica-neue", method: :delete, data: { confirm: "Are you sure" } %>
           <% end %>
         </div>
-        <div class="card-footer text-muted">
-          <small>Created <%= time_ago_in_words(@article.created_at) %> ago, Last updated <%= time_ago_in_words(@article.updated_at) %> ago</small>
+        <div class="card-footer text-muted helvetica-neue">
+          <small>created <%= time_ago_in_words(@article.created_at) %> ago, last updated <%= time_ago_in_words(@article.updated_at) %> ago</small>
         </div>
       </div>
     </div>
