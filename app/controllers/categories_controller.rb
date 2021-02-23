@@ -3,11 +3,11 @@ class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update]
 
   def index
-    @categories = Category.paginate(page: params[:page], per_page: 3)
+    @categories = Category.paginate(page: params[:page], per_page: 5)
   end
 
   def show
-    @articles = @category.articles.paginate(page: params[:page], per_page: 2)
+    @articles = @category.articles.paginate(page: params[:page], per_page: 5)
   end
 
   def new
