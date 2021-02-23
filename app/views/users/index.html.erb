@@ -6,24 +6,21 @@
   <% @users.each do |user| %>
     <div class="row justify-content-md-center">
       <div class="col-8 mt-4">
-        <div class="card text-center shadow mb-5 bg-white rounded">
-          <div class="card-header font-italic">
-            <%= link_to user.username, user %>
+        <div class="shadow mb-4 border border-light-gray bg-white rounded">
+          <div class="ml-3 pt-3 font-dark-gray helvetica-neue">
+            <%= link_to user.username, user, class:"font-dark-gray font-weight-bold" %> | <%= pluralize(user.articles.count, "articles") %>
+            <p class="courier"><small>joined <%= time_ago_in_words(user.created_at) %> ago</small></p>
           </div>
-          <div class="card-body">
-            <p class="card-text"><%= pluralize(user.articles.count, "articles") %></p>
-            <%= link_to "View", user, class:"btn btn-outline-success" %>
+          <div class="ml-3 pb-4">
+            <%= link_to "View", user, class:"btn btn-outline-dark btn-sm" %>
             <% if logged_in? %>
               <% if user == current_user %>
-                <%= link_to 'Edit', edit_user_path(user), class:"btn btn-outline-primary" %>
+                <%= link_to 'Edit', edit_user_path(user), class:"btn btn-outline-dark btn-sm" %>
               <% end %>
               <% if current_user.admin? %>
-                <%= link_to 'Delete user', user_path(user), class:"btn btn-outline-danger", method: :delete, data: { confirm: "Are you sure" } %>
+                <%= link_to 'Delete user', user_path(user), class:"btn btn-outline-dark btn-sm", method: :delete, data: { confirm: "Are you sure" } %>
               <% end %>
             <% end %>
-          </div>
-          <div class="card-footer text-muted">
-            <small>Joined <%= time_ago_in_words(user.created_at) %> ago</small>
           </div>
         </div>
       </div>
