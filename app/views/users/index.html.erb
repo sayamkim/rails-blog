@@ -7,11 +7,11 @@
     <div class="row justify-content-md-center">
       <div class="col-8 mt-4">
         <div class="shadow mb-4 border border-light-gray bg-white rounded">
-          <div class="ml-3 pt-3 font-dark-gray helvetica-neue">
-            <%= link_to user.username, user, class:"font-dark-gray font-weight-bold" %> | <%= pluralize(user.articles.count, "articles") %>
+          <div class="ml-4 pt-3 font-dark-gray helvetica-neue">
+            <%= link_to user.username, user, class:"font-weight-bold" %> | <%= pluralize(user.articles.count, "articles") %>
             <p class="courier"><small>joined <%= time_ago_in_words(user.created_at) %> ago</small></p>
           </div>
-          <div class="ml-3 pb-4">
+          <div class="ml-4 pb-4">
             <%= link_to "View", user, class:"btn btn-outline-dark btn-sm" %>
             <% if logged_in? %>
               <% if user == current_user %>
