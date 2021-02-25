@@ -5,7 +5,7 @@
         <div class="border-light-gray shadow mb-5 bg-white rounded">
           <div class="ml-4 pt-4 helvetica-neue font-dark-gray">
             <p class="font-weight-bold mb-0"><%= link_to article.title, article_path(article) %></p>
-            <p class="courier mb-1"><small>created <%= time_ago_in_words(article.created_at) %> ago, Last updated <%= time_ago_in_words(article.updated_at) %> ago</small></p>
+            <p class="courier mb-1"><small>created <%= time_ago_in_words(article.created_at) %> ago, last updated <%= time_ago_in_words(article.updated_at) %> ago</small></p>
             <p class="card-text mb-2"><%= truncate(article.description, length: 100) %></p>
             <div class="mb-3">
               <% if article.categories.any? %>
