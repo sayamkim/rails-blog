@@ -1,25 +1,22 @@
-<h2 class="text-center mt-4 helvetica neue font-dark-gray"><%= @article.title %></h2>
-<div class="container">
-  <div class="row justify-content-md-center">
-    <div class="col-8 mt-4">
-      <div class="card text-center shadow mb-5 bg-white rounded">
-        <div class="card-header font-italic">
-          by <%= @article.user.username %>
-          <% if @article.categories.any? %>
-            <div class="mt-2"><%= render @article.categories %></div>
-          <% end %>
-        </div>
-        <div class="card-body">
-          <div class="card-text text-left"><%= simple_format(@article.description) %></div>
-          <% if logged_in? && (@article.user == current_user || current_user.admin?) %>
-            <%= link_to 'Edit', edit_article_path(@article), class: "btn btn-outline-dark btn-sm helvetica-neue" %>
-            <%= link_to 'Delete', article_path(@article), class: "btn btn-outline-dark btn-sm helvetica-neue", method: :delete, data: { confirm: "Are you sure" } %>
-          <% end %>
-        </div>
-        <div class="card-footer text-muted helvetica-neue">
-          <small>created <%= time_ago_in_words(@article.created_at) %> ago, last updated <%= time_ago_in_words(@article.updated_at) %> ago</small>
-        </div>
-      </div>
+<h2 class="text-center mt-4 helvetica-neue font-dark-gray"><%= @article.title %></h2>
+<p class="courier mb-1 text-center"><small>created <%= time_ago_in_words(@article.created_at) %> ago, last updated <%= time_ago_in_words(@article.updated_at) %> ago</small></p>
+<div class="helvetica-neue text-center">
+  by <%= link_to @article.user.username, user_path(@article.user), class:"font-weight-bold font-dark-gray" %>
+</div>
+<div class="row justify-content-md-center">
+  <div class="col-8 mt-4">
+    <div class="ml-4 courier">
+      <p class="mb-2"><%= simple_format(@article.description) %></p>
+      <div class="mb-3 helvetica-neue">
+        <% if @article.categories.any? %>
+          <%= render @article.categories %>
+        <% end %>
+    </div>
+    <div class="mb-4 helvetica-neue">
+      <% if logged_in? && (@article.user == current_user || current_user.admin?) %>
+        <%= link_to 'Edit', edit_article_path(@article), class:"btn btn-outline-dark btn-sm" %>
+        <%= link_to 'Delete', article_path(@article), class:"btn btn-outline-dark btn-sm", method: :delete, data: { confirm: "Are you sure" } %>
+      <% end %>
     </div>
   </div>
 </div>
