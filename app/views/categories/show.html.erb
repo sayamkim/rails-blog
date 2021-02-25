@@ -1,11 +1,11 @@
-<h1 class="text-center mt-4"><%= @category.name %></h1>
+<h1 class="text-center mt-4 helvetica-neue font-dark-gray"><%= @category.name %></h1>
 
 <% if logged_in? && current_user.admin? %>
   <div class="text-center mt-4">
-    <%= link_to "Edit category name", edit_category_path(@category), class: "btn btn-outline-info" %>
+    <%= link_to "Edit category name", edit_category_path(@category), class: "btn btn-outline-dark btn-sm" %>
   </div>
 <% end %>
-<h3 class="text-center mt-4">Articles</h3>
+<h3 class="text-center mt-4 helvetica-neue font-dark-gray">articles</h3>
 <div class="flickr_pagination">
   <%= will_paginate @articles, :container => false %>
 </div>
