@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  after_action :prepare_intercom_shutdown, only: [:destroy]
+
   def new
     
   end
@@ -18,7 +20,11 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id] = nil
     flash[:notice] = "Logged out"
-    IntercomRails::ShutdownHelper::intercom_shutdown_helper(cookies)
     redirect_to root_path
+  end
+
+  protected
+  def prepare_intercom_shutdown
+    IntercomRails::ShutdownHelper.prepare_intercom_shutdown(session)
   end
 end
