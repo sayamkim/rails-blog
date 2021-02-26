@@ -2,7 +2,7 @@
   <% @articles.each do |article| %>
     <div class="row justify-content-md-center">
       <div class="col-8 mt-4">
-        <div class="border-light-gray shadow mb-5 bg-white rounded">
+        <%# <div class="border-light-gray shadow mb-5 bg-white rounded"> %>
           <div class="ml-4 pt-4 helvetica-neue font-dark-gray">
             <p class="font-weight-bold mb-0"><%= link_to article.title, article_path(article) %></p>
             <p class="courier mb-1"><small>created <%= time_ago_in_words(article.created_at) %> ago, last updated <%= time_ago_in_words(article.updated_at) %> ago</small></p>
@@ -21,7 +21,8 @@
               by <%= link_to article.user.username, user_path(article.user), class:"font-weight-bold font-dark-gray" %>
             </div>
           </div>
-        </div>
+          <div class="ml-4 solid-border"></div>
+        <%# </div> %>
       </div>
     </div>
   <% end %>

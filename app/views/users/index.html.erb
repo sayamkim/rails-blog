@@ -6,7 +6,7 @@
   <% @users.each do |user| %>
     <div class="row justify-content-md-center">
       <div class="col-8 mt-4">
-        <div class="shadow mb-4 border border-light-gray bg-white rounded">
+        <%# <div class="shadow mb-4 border border-light-gray bg-white rounded"> %>
           <div class="ml-4 pt-4 font-dark-gray helvetica-neue">
             <%= link_to user.username, user, class:"font-weight-bold" %> | <%= pluralize(user.articles.count, "articles") %>
             <p class="courier"><small>joined <%= time_ago_in_words(user.created_at) %> ago</small></p>
@@ -22,7 +22,8 @@
               <% end %>
             <% end %>
           </div>
-        </div>
+          <div class="ml-4 solid-border"></div>
+        <%# </div> %>
       </div>
     </div>
   <% end %>
