@@ -1,6 +1,6 @@
 ## Blog App
 
-https://sayam-blog.herokuapp.com/
+https://tofu-blog.herokuapp.com/
 
 Lightweight blog app built on Rails that includes basic login workflows and user/admin privilege separation.
 
