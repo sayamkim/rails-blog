@@ -3,20 +3,22 @@
 <div class="helvetica-neue text-center">
   by <%= link_to @article.user.username, user_path(@article.user), class:"font-weight-bold font-dark-gray" %>
 </div>
-<div class="row justify-content-md-center">
-  <div class="col-8 mt-4">
-    <div class="ml-4 courier">
-      <p class="mb-2"><%= simple_format(@article.description) %></p>
-      <div class="mb-3 helvetica-neue">
-        <% if @article.categories.any? %>
-          <%= render @article.categories %>
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-8 mt-4">
+      <div class="ml-4 courier">
+        <p class="mb-2"><%= simple_format(@article.description) %></p>
+        <div class="mb-3 helvetica-neue">
+          <% if @article.categories.any? %>
+            <%= render @article.categories %>
+          <% end %>
+      </div>
+      <div class="mb-4 helvetica-neue">
+        <% if logged_in? && (@article.user == current_user || current_user.admin?) %>
+          <%= link_to 'Edit', edit_article_path(@article), class:"btn btn-outline-dark btn-sm" %>
+          <%= link_to 'Delete', article_path(@article), class:"btn btn-outline-dark btn-sm", method: :delete, data: { confirm: "Are you sure" } %>
         <% end %>
+      </div>
     </div>
-    <div class="mb-4 helvetica-neue">
-      <% if logged_in? && (@article.user == current_user || current_user.admin?) %>
-        <%= link_to 'Edit', edit_article_path(@article), class:"btn btn-outline-dark btn-sm" %>
-        <%= link_to 'Delete', article_path(@article), class:"btn btn-outline-dark btn-sm", method: :delete, data: { confirm: "Are you sure" } %>
-      <% end %>
-    </div>
-  </div>
+</div>
 </div>
